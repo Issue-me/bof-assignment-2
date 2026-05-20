@@ -1,0 +1,39 @@
+.manage-interest-rate-page {
+  font-family: inherit;
+}
+
+.manage-interest-rate-page .tax-title,
+.manage-interest-rate-page .tax-subtitle,
+.manage-interest-rate-page .card-title,
+.manage-interest-rate-page .summary-label,
+.manage-interest-rate-page .summary-amount,
+.manage-interest-rate-page .summary-sub,
+.manage-interest-rate-page .info-label,
+.manage-interest-rate-page .info-value,
+.manage-interest-rate-page .tax-disclaimer,
+.manage-interest-rate-page .interest-notice,
+.manage-interest-rate-page .notice-icon,
+.manage-interest-rate-page .badge,
+.manage-interest-rate-page label,
+.manage-interest-rate-page input,
+.manage-interest-rate-page button,
+.manage-interest-rate-page p,
+.manage-interest-rate-page span,
+.manage-interest-rate-page th,
+.manage-interest-rate-page td,
+.manage-interest-rate-page a,
+.manage-interest-rate-page h1,
+.manage-interest-rate-page h2,
+.manage-interest-rate-page h3 {
+  font-family: inherit !important;
+}
+
+.manage-interest-rate-page .tax-title,
+.manage-interest-rate-page .card-title {
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.manage-interest-rate-page .summary-amount {
+  font-weight: 700;
+}

@@ -1,0 +1,1398 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   TaxReport.css
+   Bank of Fiji — FRCS Annual Tax Report (Modernized)
+═══════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+/* ── CSS Variables ────────────────────────────────────────────────────── */
+:root {
+  --navy:         #0f2044;
+  --navy-light:   #1a3560;
+  --gold:         #c9983a;
+  --green:        #15803d;
+  --green-bg:     #dcfce7;
+  --blue:         #1d4ed8;
+  --blue-bg:      #dbeafe;
+  --red:          #b91c1c;
+  --red-bg:       #fee2e2;
+  --purple:       #7c3aed;
+  --purple-bg:    #ede9fe;
+  --orange:       #c2410c;
+  --orange-bg:    #ffedd5;
+  --yellow:       #92400e;
+  --yellow-bg:    #fef3c7;
+}
+
+/* ── Tax Report card content ─────────────────────────────────────────── */
+.tax-header-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.year-select {
+  font-family: 'DM Mono', monospace;
+
+  .btn-primary {
+    background: var(--navy);
+    color: #fff;
+    border: 2px solid var(--gold);
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(21, 14, 48, 0.12);
+    transition: background .15s, transform .1s, box-shadow .15s;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--navy-light);
+    border-color: var(--gold);
+    box-shadow: 0 4px 16px rgba(21, 14, 48, 0.18);
+    transform: translateY(-1px);
+  }
+  .btn-primary:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+  }
+
+}
+
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #64748b;
+}
+
+.info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a2239;
+}
+
+.info-value.mono {
+  font-family: 'DM Mono', monospace;
+}
+
+.text-warning {
+  color: var(--orange);
+}
+
+.tin-warning-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange);
+  background: var(--orange-bg);
+  border: 1px solid #fdba74;
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+/* ── Summary cards grid ───────────────────────────────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.summary-card.green  { background: var(--green-bg);  }
+.summary-card.blue   { background: var(--blue-bg);   }
+.summary-card.red    { background: var(--red-bg);    }
+.summary-card.purple { background: var(--purple-bg); }
+
+.summary-label  { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #64748b; }
+.summary-amount { font-family: 'DM Mono', monospace; font-size: 18px; font-weight: 600; color: #1a2239; margin: 4px 0; }
+.summary-sub    { font-size: 12px; color: #64748b; }
+
+/* ── Badges ───────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.badge-green  { background: var(--green-bg);  color: var(--green); }
+.badge-yellow { background: var(--yellow-bg); color: var(--yellow); }
+.badge-blue   { background: var(--blue-bg);   color: var(--blue); }
+.badge-purple { background: var(--purple-bg); color: var(--purple); }
+
+/* ── Tax card inside the modern card ─────────────────────────────────── */
+.tax-card {
+  background: #f8f9fb;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 18px;
+  margin-block-end: 1.2rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+}
+
+.card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1e3a8a;
+  margin: 0 0 1rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-title-badge {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ── Interest panel styling ─────────────────────────────────────────── */
+.interest-panel {
+  border-inline-start: 4px solid #c9983a;
+}
+
+.interest-stats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-block-end: 1.2rem;
+}
+
+.interest-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: 8px;
+}
+
+.interest-stat.highlight {
+  background: #f8f9fb;
+  border: 1px solid #e2e8f0;
+}
+
+.interest-stat-divider {
+  inline-size: 1px;
+  background: #e2e8f0;
+  margin: 8px 0;
+  align-self: stretch;
+}
+
+.istat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.istat-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.istat-amount.positive {
+  color: #15803d;
+}
+
+.istat-amount.negative {
+  color: #b91c1c;
+}
+
+.istat-sub {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  max-inline-size: 260px;
+}
+
+/* ── Withholding notice ──────────────────────────────────────────────── */
+.interest-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #dbeafe;
+  border: 1px solid #93c5fd;
+  color: #1d4ed8;
+  font-size: 13px;
+  margin-block-end: 1rem;
+}
+
+.interest-notice.notice-success {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.notice-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-block-start: 1px;
+}
+
+/* ── Interest bar ────────────────────────────────────────────────────── */
+.interest-bar-wrap {
+  margin-block-start: 1rem;
+}
+
+.interest-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  margin-block-end: 8px;
+}
+
+.interest-bar {
+  block-size: 12px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fee2e2;
+  display: flex;
+}
+
+.interest-bar-net {
+  background: #15803d;
+  border-radius: 20px 0 0 20px;
+  transition: inline-size .4s ease;
+}
+
+.interest-bar-withheld {
+  background: #b91c1c;
+  border-radius: 0 20px 20px 0;
+  transition: inline-size .4s ease;
+}
+
+.interest-bar-net:only-child {
+  border-radius: 20px;
+}
+
+/* ── Tags ────────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.tag-red {
+  background: var(--red-bg);
+  color: var(--red);
+}
+
+.tag-blue {
+  background: var(--blue-bg);
+  color: var(--blue);
+}
+
+.tag-yellow {
+  background: var(--yellow-bg);
+  color: var(--yellow);
+}
+
+.tag-green {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.tag-orange {
+  background: var(--orange-bg);
+  color: var(--orange);
+}
+
+.tag-purple {
+  background: var(--purple-bg);
+  color: var(--purple);
+}
+
+/* ── Tax table ────────────────────────────────────────────────────────── */
+.tax-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tax-table th {
+  text-align: start;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #64748b;
+  border-block-end: 2px solid #e2e8f0;
+  background: #f9fafb;
+}
+
+.tax-table th:last-child {
+  text-align: end;
+}
+
+.tax-table td {
+  padding: 12px;
+  border-block-end: 1px solid #e2e8f0;
+  vertical-align: middle;
+}
+
+.tax-table tbody tr:last-child td {
+  border-block-end: none;
+}
+
+.tax-table tbody tr:hover {
+  background: #fafbfc;
+}
+
+/* ── Taxpayer info grid ───────────────────────────────────────────────── */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.info-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+}
+.info-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.info-value.mono { font-family: 'DM Mono', monospace; }
+.text-warning { color: var(--orange); }
+
+.tin-warning-badge {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange);
+  background: var(--orange-bg);
+  border: 1px solid var(--orange-border);
+  padding: 2px 7px;
+  border-radius: 20px;
+}
+
+/* ── Summary cards grid ───────────────────────────────────────────────── */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.summary-card {
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+  transition: box-shadow .2s;
+}
+.summary-card:hover { box-shadow: var(--shadow-hover); }
+.summary-card.green  { background: var(--green-bg);  border-color: var(--green-border); }
+.summary-card.blue   { background: var(--blue-bg);   border-color: var(--blue-border);  }
+.summary-card.red    { background: var(--red-bg);    border-color: var(--red-border);   }
+.summary-card.purple { background: var(--purple-bg); border-color: var(--purple-border);}
+
+.summary-label  { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-secondary); }
+.summary-amount { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; color: var(--text-primary); margin: 4px 0; }
+.summary-sub    { font-size: 12px; color: var(--text-muted); }
+.summary-card.yellow { background: var(--yellow-bg); border-color: var(--yellow-border); }
+
+/* ── Filter pills ─────────────────────────────────────────────────────── */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.filter-pill {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+  white-space: nowrap;
+}
+.filter-pill:hover { background: var(--bg); color: var(--text-primary); }
+.filter-pill-active {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+/* ── Extra badge variants ─────────────────────────────────────────────── */
+.badge-red    { background: var(--red-bg);    color: var(--red);    border: 1px solid var(--red-border);    }
+.badge-yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border); }
+
+/* ── ⭐ INTEREST SUMMARY PANEL ─────────────────────────────────────────── */
+.interest-panel {
+  border-left: 4px solid var(--gold);
+}
+
+.interest-stats {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-bottom: 20px;
+}
+
+.interest-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 20px;
+  border-radius: var(--radius-sm);
+}
+
+.interest-stat.highlight {
+  background: #f8f9fb;
+  border: 1px solid var(--border);
+}
+
+.interest-stat-divider {
+  width: 1px;
+  background: var(--border);
+  margin: 8px 0;
+  align-self: stretch;
+}
+
+.istat-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.istat-amount {
+  font-family: 'DM Mono', monospace;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.istat-amount.positive { color: var(--green); }
+.istat-amount.negative { color: var(--red);   }
+
+.istat-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 260px;
+}
+
+/* Withholding notice inside interest panel */
+.interest-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-border);
+  color: var(--blue);
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+.interest-notice.notice-success {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+.notice-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+
+/* Visual interest bar */
+.interest-bar-wrap { margin-top: 4px; }
+.interest-bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.interest-bar {
+  height: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--red-bg);
+  display: flex;
+}
+.interest-bar-net {
+  background: var(--green);
+  border-radius: 20px 0 0 20px;
+  transition: width .4s ease;
+}
+.interest-bar-withheld {
+  background: var(--red);
+  border-radius: 0 20px 20px 0;
+  transition: width .4s ease;
+}
+
+/* Full-width net when exempt */
+.interest-bar-net:only-child {
+  border-radius: 20px;
+}
+
+/* ── Badges ───────────────────────────────────────────────────────────── */
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: black !important
+}
+.badge-green  { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-border); }
+.badge-yellow { background: var(--yellow-bg); color: var(--yellow); border: 1px solid var(--yellow-border);}
+.badge-blue   { background: var(--blue-bg);   color: var(--blue);   border: 1px solid var(--blue-border);  }
+.badge-purple { background: var(--purple-bg); color: var(--purple); border: 1px solid var(--purple-border);}
+
+/* ── Tags ─────────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+.tag-red    { background: var(--red-bg);    color: var(--red);    }
+.tag-blue   { background: var(--blue-bg);   color: var(--blue);   }
+.tag-yellow { background: var(--yellow-bg); color: var(--yellow); }
+.tag-green  { background: var(--green-bg);  color: var(--green);  }
+.tag-orange { background: var(--orange-bg); color: var(--orange); }
+.tag-purple { background: var(--purple-bg); color: var(--purple); }
+
+/* ── Tax table ────────────────────────────────────────────────────────── */
+.tax-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.tax-table th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text-muted);
+  border-bottom: 2px solid var(--border);
+  background: #f9fafb;
+}
+.tax-table th:last-child { text-align: right; }
+.tax-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.tax-table tbody tr:last-child td { border-bottom: none; }
+.tax-table tbody tr:hover { background: #fafbfc; }
+
+.tax-table td.amount        { text-align: left; font-family: 'DM Mono', monospace; font-size: 13px; }
+.tax-table td.amountright        { text-align: right; font-family: 'DM Mono', monospace; font-size: 13px; }
+.tax-table td.deduction     { color: var(--green); }
+.tax-table td.negative-text { color: var(--red);   }
+.tax-table td.positive-text { text-align: right;color: var(--green); }
+
+.total-row td {
+  background: var(--navy);
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 0;
+}
+.total-row td.amount { font-family: 'DM Mono', monospace; font-size: 15px; }
+
+/* ── Income / interest detail grid ───────────────────────────────────── */
+.income-grid { display: flex; flex-direction: column; gap: 0; }
+
+.income-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  transition: background .1s;
+}
+.income-row:last-child { border-bottom: none; }
+.income-row:hover { background: #f9fafb; }
+
+.income-row-highlight {
+  background: #f0f4ff;
+  border-radius: var(--radius-sm);
+  padding: 12px 10px;
+  margin: 2px 0;
+  font-weight: 500;
+}
+
+.income-row .positive { font-family: 'DM Mono', monospace; color: var(--green); font-weight: 500; }
+.income-row .negative { font-family: 'DM Mono', monospace; color: var(--red);   font-weight: 500; }
+.income-row .neutral  { font-family: 'DM Mono', monospace; color: var(--text-secondary); }
+
+/* ── Buttons ──────────────────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, transform .1s;
+}
+.btn-primary:hover:not(:disabled) { background: var(--navy-light); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; }
+
+
+.tax-header-right.no-print .btn-outline {
+  background: transparent;
+  color: #fff !important;
+  border: 1.5px solid var(--navy);
+  padding: 9px 18px;
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.btn-outline:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* Header area btn-outline overrides */
+.tax-header .btn-outline {
+  color: #fff;
+  border-color: rgba(255,255,255,.4);
+}
+.tax-header .btn-outline:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+/* ── Actions card ─────────────────────────────────────────────────────── */
+.actions-card { background: #f8f9fb; }
+
+.actions-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.actions-info h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.actions-info p  { margin: 0; font-size: 13px; color: var(--text-secondary); }
+.actions-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.submit-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.success-icon { font-size: 28px; flex-shrink: 0; }
+.submit-success p { margin: 0 0 4px; }
+.ref-number code {
+  font-family: 'DM Mono', monospace;
+  background: var(--blue-bg);
+  color: var(--blue);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.hint { font-size: 12px; color: var(--text-muted); margin-top: 4px !important; }
+
+/* ── Disclaimer ───────────────────────────────────────────────────────── */
+.tax-disclaimer {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.7;
+}
+
+@media print {
+ 
+  /* ── Hide all app chrome ──────────────────────────────────────────── */
+  /* Hamburger toggle, sidebar, top nav, sign out, header bar */
+  .no-print,
+  button.btn-back,
+  .tax-header-right,
+ 
+  /* Common layout class names — covers most React app shells */
+  header, nav, aside,
+  .navbar, .top-nav, .app-header, .layout-header,
+  .sidebar, .nav-sidebar, .layout-sidebar,
+  .app-sidebar, .side-nav, .drawer,
+ 
+  /* Material / Ant / Chakra / custom hamburger patterns */
+  [class*="hamburger"], [class*="menu-toggle"],
+  [class*="MuiAppBar"], [class*="MuiDrawer"],
+ 
+  /* Sign Out / logout buttons */
+  button[class*="sign-out"], button[class*="logout"],
+  a[class*="sign-out"],  a[class*="logout"],
+ 
+  /* Notification bell */
+  .notification-bell, [class*="notification-icon"],
+ 
+  /* Any element explicitly marked no-print */
+  .no-print {
+    display: none !important;
+  }
+ 
+  /* ── Remove sidebar margin from content ───────────────────────────── */
+  body.print-tax-report .layout-content,
+  body.print-tax-report .main-content,
+  body.print-tax-report .page-content,
+  body.print-tax-report .content-wrapper,
+  body.print-tax-report .dashboard-main,
+  body.print-tax-report main {
+    margin-left:  0 !important;
+    padding-left: 0 !important;
+    width:        100% !important;
+    max-width:    100% !important;
+  }
+ 
+  body.print-tax-report .tax-page {
+    max-width: 100% !important;
+    padding:   0 !important;
+  }
+ 
+  /* ── Page setup ───────────────────────────────────────────────────── */
+  @page {
+    size: A4 landscape;
+    margin: 12mm 14mm;
+  }
+ 
+  /* ── Base overrides ───────────────────────────────────────────────── */
+  .tax-page {
+    background: #fff !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    font-size: 11px !important;
+  }
+ 
+  /* ── Cards ────────────────────────────────────────────────────────── */
+  .tax-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    margin-bottom: 10px !important;
+    padding: 12px !important;
+  }
+ 
+  /* ── Header ───────────────────────────────────────────────────────── */
+  .tax-header {
+    background: #0f2044 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    padding: 12px 16px !important;
+    margin-bottom: 12px !important;
+  }
+  .tax-title    { font-size: 18px !important; }
+  .tax-subtitle { font-size: 10px !important; }
+  .tax-badge    { font-size: 14px !important; padding: 4px 8px !important; }
+ 
+  /* ── Summary cards ────────────────────────────────────────────────── */
+  .summary-card {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    break-inside: avoid;
+    padding: 10px !important;
+  }
+  .summary-amount { font-size: 14px !important; }
+  .summary-grid   { gap: 8px !important; margin-bottom: 10px !important; }
+ 
+  /* ── Tables ───────────────────────────────────────────────────────── */
+  .tax-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    font-size: 10px !important;
+    border-collapse: collapse !important;
+    word-wrap: break-word !important;
+    overflow: visible !important;
+  }
+  .tax-table th,
+  .tax-table td {
+    padding: 5px 6px !important;
+    font-size: 10px !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    border: 1px solid #ddd !important;
+  }
+  .tax-table th {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .total-row td {
+    background: #0f2044 !important;
+    color: #fff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 10px !important;
+  }
+  .tax-table tbody tr { break-inside: avoid; }
+ 
+  /* ── Badges / tags ────────────────────────────────────────────────── */
+  .badge, .tag {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 9px !important;
+    padding: 1px 4px !important;
+  }
+ 
+  /* ── Income rows ──────────────────────────────────────────────────── */
+  .income-row { padding: 6px 4px !important; font-size: 11px !important; }
+  .income-row-highlight {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+ 
+  /* ── Card titles ──────────────────────────────────────────────────── */
+  .card-title {
+    font-size: 13px !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 10px !important;
+  }
+ 
+  /* ── Info grid ────────────────────────────────────────────────────── */
+  .info-label { font-size: 9px !important; }
+  .info-value { font-size: 11px !important; }
+ 
+  /* ── Disclaimer ───────────────────────────────────────────────────── */
+  .tax-disclaimer { font-size: 9px !important; }
+ 
+  /* ── RIWT upload section — hide in PDF (can't click in a PDF) ──────── */
+  .riwt-exemption-card { display: none !important; }
+ 
+  /* Force all colours to print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .tax-page .tax-header {
+    padding: 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  .tax-page .tax-header-left {
+    gap: 8px;
+  }
+
+  .tax-page .tax-title {
+    font-size: 1.12rem;
+  }
+
+  .tax-page .tax-subtitle {
+    font-size: 0.82rem;
+  }
+
+  .tax-page .tax-badge {
+    font-size: 0.66rem;
+    padding: 4px 8px;
+  }
+
+  .tax-page .tax-header-right {
+    inline-size: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+    gap: 8px;
+  }
+
+  .tax-page .tax-header-right .year-select,
+  .tax-page .tax-header-right .btn-outline {
+    inline-size: 100%;
+    min-block-size: 36px;
+    font-size: 0.82rem;
+    padding: 7px 10px;
+  }
+
+  .tax-page .tax-card,
+  .frcs-report-page .tax-card,
+  .frcs-report-page > .card {
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+
+  .tax-page .summary-grid,
+  .frcs-report-page .summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tax-page .summary-amount,
+  .frcs-report-page .summary-amount {
+    font-size: 1.02rem;
+  }
+
+  .tax-page .info-grid,
+  .frcs-report-page .info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .tax-page .interest-stats {
+    flex-direction: column;
+  }
+
+  .tax-page .interest-stat-divider {
+    inline-size: auto;
+    block-size: 1px;
+    margin: 0;
+  }
+
+  .tax-page .istat-amount {
+    font-size: 21px;
+  }
+
+  .tax-page .tax-table th,
+  .tax-page .tax-table td,
+  .frcs-report-page .tax-table th,
+  .frcs-report-page .tax-table td {
+    padding: 8px 9px;
+    font-size: 0.8rem;
+  }
+
+  .tax-page .tax-table th,
+  .frcs-report-page .tax-table th {
+    font-size: 0.68rem;
+  }
+
+  .tax-page .income-row,
+  .frcs-report-page .income-row {
+    padding: 9px 4px;
+    font-size: 0.8rem;
+  }
+
+  .tax-page .actions-row {
+    gap: 10px;
+  }
+
+  .tax-page .actions-buttons {
+    inline-size: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .tax-page .actions-buttons .btn-outline,
+  .tax-page .actions-buttons .btn-primary {
+    inline-size: 100%;
+    min-block-size: 36px;
+    font-size: 0.82rem;
+    padding: 7px 10px;
+  }
+
+  .frcs-report-page .page-header {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .frcs-report-page .page-header h1 {
+    font-size: 1.14rem;
+  }
+
+  .frcs-report-page .page-header p {
+    font-size: 0.84rem;
+  }
+
+  .frcs-report-page .frcs-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .frcs-report-page .frcs-controls .year-select,
+  .frcs-report-page .frcs-controls .btn-outline {
+    inline-size: 100%;
+    min-block-size: 36px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .tax-page,
+  .frcs-report-page {
+    padding: 0;
+  }
+
+  .tax-page .tax-header {
+    padding: 10px;
+  }
+
+  .tax-page .tax-title {
+    font-size: 1rem;
+  }
+
+  .tax-page .tax-subtitle {
+    font-size: 0.76rem;
+  }
+
+  .tax-page .tax-header-right {
+    grid-template-columns: 1fr;
+  }
+
+  .tax-page .tax-card,
+  .frcs-report-page .tax-card,
+  .frcs-report-page > .card {
+    padding: 11px !important;
+    border-radius: 12px !important;
+  }
+
+  .tax-page .summary-grid,
+  .frcs-report-page .summary-grid,
+  .tax-page .info-grid,
+  .frcs-report-page .info-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tax-page .summary-label,
+  .frcs-report-page .summary-label,
+  .tax-page .summary-sub,
+  .frcs-report-page .summary-sub {
+    font-size: 0.72rem;
+  }
+
+  .tax-page .summary-amount,
+  .frcs-report-page .summary-amount {
+    font-size: 0.94rem;
+  }
+
+  .tax-page .tax-table th,
+  .tax-page .tax-table td,
+  .frcs-report-page .tax-table th,
+  .frcs-report-page .tax-table td {
+    padding: 7px 6px;
+    font-size: 0.74rem;
+  }
+
+  .tax-page .tax-table th,
+  .frcs-report-page .tax-table th {
+    font-size: 0.64rem;
+  }
+
+  .tax-page .badge,
+  .tax-page .tag,
+  .frcs-report-page .badge,
+  .frcs-report-page .tag {
+    font-size: 0.62rem;
+    padding: 2px 6px;
+  }
+
+  .tax-page .income-row,
+  .frcs-report-page .income-row {
+    padding: 8px 2px;
+    font-size: 0.76rem;
+  }
+
+  .tax-page .actions-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .tax-page .tax-loading,
+  .frcs-report-page .tax-loading {
+    padding: 14px;
+    font-size: 0.84rem;
+  }
+
+  .frcs-report-page .page-header {
+    padding: 11px;
+  }
+
+  .frcs-report-page .page-header h1 {
+    font-size: 1.02rem;
+  }
+
+  .frcs-report-page .page-header p {
+    font-size: 0.78rem;
+  }
+
+  .frcs-report-page .frcs-controls {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tax and FRCS command-center alignment */
+
+.tax-page,
+.frcs-report-page {
+  max-inline-size: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--bof-text, #1f2130);
+}
+
+.tax-page .tax-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(171, 227, 157, 0.17), transparent 42%),
+    linear-gradient(122deg, #232323 0%, #34265a 62%, #402f70 100%);
+  box-shadow: 0 16px 30px rgba(21, 14, 48, 0.26);
+}
+
+.tax-page .tax-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tax-page .tax-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tax-page .tax-badge {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+.tax-page .tax-title {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.tax-page .tax-subtitle {
+  margin: 3px 0 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.92rem;
+}
+
+.tax-page .tax-card,
+.frcs-report-page .tax-card {
+  background: rgba(255, 255, 255, 0.94) !important;
+  border: 1px solid #e5dff6 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 14px 30px rgba(40, 30, 86, 0.1);
+}
+
+.tax-page .interest-panel {
+  border-inline-start: 4px solid var(--bof-accent, #7a40ff);
+  background:
+    linear-gradient(180deg, rgba(122, 64, 255, 0.05) 0%, rgba(122, 64, 255, 0) 45%),
+    rgba(255, 255, 255, 0.94) !important;
+}
+
+.tax-page .card-title,
+.frcs-report-page .card-title {
+  color: #2e2b58 !important;
+  border-block-end-color: #ece8f7;
+}
+
+.tax-page .tax-table th,
+.frcs-report-page .tax-table th {
+  background: #f4f1fc !important;
+  color: #56507a !important;
+  border-block-end: 1px solid #ece8f7 !important;
+}
+
+.tax-page .tax-table td,
+.frcs-report-page .tax-table td {
+  border-block-end: 1px solid #ece8f7 !important;
+}
+
+.tax-page .tax-table tbody tr:hover,
+.frcs-report-page .tax-table tbody tr:hover {
+  background: #f9f7ff !important;
+}
+
+.tax-page .income-row {
+  border-bottom: 1px solid #ece8f7;
+}
+
+.tax-page .income-row-highlight {
+  background: #f6f2ff;
+}
+
+.tax-page .interest-notice,
+.frcs-report-page .interest-notice {
+  border-radius: 10px;
+}
+
+.tax-page .tax-loading,
+.frcs-report-page .tax-loading {
+  background: #faf8ff;
+  border: 1px dashed #d9cff8;
+  border-radius: 14px;
+  padding: 22px;
+  color: #666d88;
+}
+
+@media (max-width: 860px) {
+  .tax-page .tax-header {
+    padding: 14px;
+  }
+
+  .tax-page .tax-header-right {
+    inline-size: 100%;
+  }
+
+  .tax-page .tax-header-right .btn-outline,
+  .tax-page .tax-header-right .year-select {
+    flex: 1 1 160px;
+  }
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .tax-page { padding: 16px 12px 40px; }
+  .interest-stats { flex-direction: column; }
+  .interest-stat-divider { width: auto; height: 1px; margin: 0; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .actions-row { flex-direction: column; align-items: flex-start; }
+  .istat-amount { font-size: 20px; }
+}
+
+/* ==========================================================================
+   RIWT EXEMPTION SECTION — append to TaxReport.css
+   ========================================================================== */
+
+.riwt-exemption-card {
+  border-left: 3px solid var(--tag-blue, #2563eb);
+}
+
+.exemption-upload-section {
+  background: var(--surface-subtle, #f7f9fc);
+  border: 1px solid var(--border, #e8ecef);
+  border-radius: var(--radius-sm, 6px);
+  padding: 16px;
+  margin-bottom: 4px;
+}
+
+.exemption-upload-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+/* ==========================================================================
+   PRINT — sidebar hide (append to existing @media print block or add here)
+   ========================================================================== */
+@media print {
+  /* Hides the layout sidebar + navbar when printing tax report */
+  .sidebar, .nav-sidebar, .layout-sidebar, aside,
+  nav, .navbar, .top-nav, .layout-nav,
+  .app-header, header.app-header, .layout-header {
+    display: none !important;
+  }
+
+  /* Remove sidebar offset from main content area */
+  body.print-tax-report .layout-content,
+  body.print-tax-report .main-content,
+  body.print-tax-report .page-content,
+  body.print-tax-report .content-wrapper {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  body.print-tax-report .tax-page {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .no-print          { display: none !important; }
+  .riwt-exemption-card { display: none !important; }
+
+  .tax-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

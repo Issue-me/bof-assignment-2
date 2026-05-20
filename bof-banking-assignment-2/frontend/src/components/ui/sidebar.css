@@ -1,0 +1,283 @@
+.sidebar-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.sidebar {
+  background: var(--bof-shell);
+  color: #f5f5f5;
+  width: 272px;
+  flex: 0 0 272px;
+  border-right: 1px solid var(--bof-shell-border);
+  box-shadow: 10px 0 22px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: width 0.3s ease, flex-basis 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+  flex-basis: 80px;
+}
+
+.sidebar.collapsed .sidebar-bank-name,
+.sidebar.collapsed .sidebar-menu-label,
+.sidebar.collapsed .sidebar-submenu,
+.sidebar.collapsed .sidebar-user-meta,
+.sidebar.collapsed .sidebar-footer-logout {
+  display: none;
+}
+
+.sidebar-header {
+  height: 78px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--bof-shell-border);
+}
+
+.sidebar-content {
+  padding: 14px 12px;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-menu-item {
+  margin: 0;
+}
+
+.sidebar-menu-button {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  color: #bdbdc9;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-menu-button:hover {
+  background: rgba(122, 64, 255, 0.16);
+  color: #ffffff;
+}
+
+.sidebar-collapsible-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sidebar-collapsible-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.sidebar-collapsible-arrow.open {
+  transform: rotate(90deg);
+}
+
+.sidebar-submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 2px 0 8px 14px;
+  padding-left: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-submenu-link {
+  color: #a1a1b8;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.sidebar-submenu-link:hover {
+  color: #ffffff;
+}
+
+.sidebar-menu-button.active {
+  background: var(--bof-accent);
+  color: #ffffff;
+}
+
+.sidebar-submenu {
+  list-style: none;
+  margin: 4px 0 8px;
+  padding: 0 0 0 18px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-submenu-button {
+  min-height: 34px;
+  font-size: 0.84rem;
+  padding: 8px 10px;
+  color: #a8a8bf;
+  font-weight: 500;
+}
+
+.sidebar-submenu-button.active {
+  background: rgba(171, 227, 157, 0.2);
+  color: #e9ffe4;
+}
+
+.sidebar-submenu-button:hover {
+  background: rgba(122, 64, 255, 0.15);
+  color: #ffffff;
+}
+
+.sidebar-trigger {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-trigger:hover {
+  background: rgba(122, 64, 255, 0.2);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 14px 12px;
+  border-top: 1px solid var(--bof-shell-border);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-logo {
+width: 38px;
+height: 38px;
+border-radius: 10%;
+object-fit: cover;
+display: block;
+background: transparent;
+}
+
+.sidebar-bank-name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.sidebar-menu-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.sidebar-menu-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.sidebar-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(122, 64, 255, 0.24);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.sidebar-user-name {
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.sidebar-user-email {
+  color: #b9b9cc;
+  font-size: 0.8rem;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-footer-logout {
+  width: 100%;
+  min-height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 10px;
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.sidebar-footer-logout:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.sidebar.collapsed .sidebar-menu-button {
+  justify-content: center;
+  padding: 10px;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 84px;
+    flex-basis: 84px;
+  }
+
+  .sidebar .sidebar-bank-name,
+  .sidebar .sidebar-menu-label,
+  .sidebar .sidebar-submenu,
+  .sidebar .sidebar-user-meta,
+  .sidebar .sidebar-footer-logout {
+    display: none;
+  }
+
+  .sidebar .sidebar-menu-button {
+    justify-content: center;
+    padding: 10px;
+  }
+}

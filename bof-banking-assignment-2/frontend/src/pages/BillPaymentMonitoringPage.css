@@ -1,0 +1,302 @@
+.bill-monitoring-page {
+  max-inline-size: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--bof-text);
+}
+
+.bill-monitoring-page .page-header {
+  margin: 0 0 14px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(171, 227, 157, 0.17), transparent 42%),
+    linear-gradient(120deg, #232323 0%, #35295d 62%, #403072 100%);
+    box-shadow: 0 16px 30px rgba(21, 14, 48, 0.25);
+}
+
+.bill-monitoring-page .page-header h1 {
+  margin: 0;
+  color: #d8d0ee !important;
+  font-weight: 600 !important;
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+  letter-spacing: -0.01em;
+}
+
+.bill-monitoring-page .page-header p {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.84) !important;
+}
+
+.bill-monitoring-page .card {
+  margin-top: 0;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 18px;
+  border: 1px solid #e5dff6;
+  box-shadow: 0 14px 30px rgba(40, 30, 86, 0.1);
+  padding: 18px;
+}
+
+.bill-monitoring-page .monitor-filters {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+.bill-monitoring-page .monitor-grid {
+  display: grid;
+  gap: 12px 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;
+}
+
+.bill-monitoring-page .monitor-grid label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #4f5570;
+  font-weight: 700;
+}
+
+.bill-monitoring-page .monitor-grid input,
+.bill-monitoring-page .monitor-grid select {
+  border: 1px solid #d8d0ee;
+  border-radius: 10px;
+  padding: 9px 10px;
+  font-size: 0.9rem;
+  color: var(--bof-text);
+  background: #fff;
+}
+
+.bill-monitoring-page .monitor-grid input:focus,
+.bill-monitoring-page .monitor-grid select:focus {
+  border-color: var(--bof-accent);
+  box-shadow: 0 0 0 3px rgba(122, 64, 255, 0.16);
+  outline: none;
+}
+
+.bill-monitoring-page .monitor-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5dff6;
+}
+
+.bill-monitoring-page .btn {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.bill-monitoring-page .btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.bill-monitoring-page .btn-primary {
+  background: var(--bof-accent);
+  color: #fff;
+  border-color: var(--bof-accent);
+}
+
+.bill-monitoring-page .btn-primary:hover:not(:disabled) {
+  background: var(--bof-accent-hover);
+  border-color: var(--bof-accent-hover);
+}
+
+.bill-monitoring-page .btn-secondary {
+  background: rgba(122, 64, 255, 0.14);
+  color: #4a2ab5;
+  border-color: rgba(122, 64, 255, 0.28);
+}
+
+.bill-monitoring-page .btn-secondary:hover:not(:disabled) {
+  background: rgba(122, 64, 255, 0.22);
+}
+
+.bill-monitoring-page .monitor-meta {
+  margin: 10px 0;
+  color: #5b617e;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.bill-monitoring-page .table-wrap {
+  overflow-x: auto;
+  border: 1px solid #ece8f7;
+  border-radius: 12px;
+}
+
+.bill-monitoring-page .monitor-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.bill-monitoring-page .monitor-table th,
+.bill-monitoring-page .monitor-table td {
+  border-bottom: 1px solid #ece8f7;
+  padding: 10px;
+  text-align: left;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.bill-monitoring-page .monitor-table th {
+  background: #f4f1fc;
+  color: #56507a;
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.bill-monitoring-page .monitor-table tbody tr:hover {
+  background: #f9f7ff;
+}
+
+.bill-monitoring-page .loading {
+  color: #5b617e;
+  font-weight: 700;
+}
+
+.bill-monitoring-page .alert {
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 10px;
+}
+
+.bill-monitoring-page .alert-error {
+  background: #fff1f3;
+  color: #b4233f;
+  border: 1px solid #fec8d4;
+}
+
+.bill-monitoring-page .pagination {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) auto minmax(140px, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.bill-monitoring-page .pagination span {
+  white-space: nowrap;
+  text-align: center;
+  color: #5b617e;
+  font-weight: 700;
+}
+
+.bill-monitoring-page .pagination .btn {
+  inline-size: 100%;
+}
+
+.bill-monitoring-page .muted {
+  color: #697089;
+}
+
+.bill-monitoring-page .center {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .bill-monitoring-page .page-header {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .bill-monitoring-page .page-header h1 {
+    font-size: 1.06rem;
+    color: #fff;
+  }
+
+  .bill-monitoring-page .page-header p {
+    font-size: 0.84rem;
+    margin-top: 6px;
+    
+  }
+
+  .bill-monitoring-page .card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .bill-monitoring-page .monitor-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .bill-monitoring-page .monitor-grid label {
+    font-size: 0.76rem;
+  }
+
+  .bill-monitoring-page .monitor-grid input,
+  .bill-monitoring-page .monitor-grid select {
+    min-block-size: 38px;
+    font-size: 0.86rem;
+    padding: 8px 10px;
+  }
+
+  .bill-monitoring-page .btn {
+    min-block-size: 36px;
+    font-size: 0.84rem;
+    padding: 7px 10px;
+  }
+
+  .bill-monitoring-page .monitor-actions .btn {
+    flex: 1 1 48%;
+  }
+
+  .bill-monitoring-page .monitor-table th,
+  .bill-monitoring-page .monitor-table td {
+    padding: 8px;
+    font-size: 0.78rem;
+  }
+
+  .bill-monitoring-page .monitor-table th {
+    font-size: 0.68rem;
+  }
+
+  .bill-monitoring-page .monitor-meta,
+  .bill-monitoring-page .pagination span {
+    font-size: 0.82rem;
+  }
+
+  .bill-monitoring-page .pagination {
+    grid-template-columns: 1fr;
+  }
+
+  .bill-monitoring-page .pagination .btn {
+    inline-size: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .bill-monitoring-page .page-header {
+    padding: 11px;
+  }
+
+  .bill-monitoring-page .card {
+    padding: 11px;
+  }
+
+  .bill-monitoring-page .btn {
+    min-block-size: 34px;
+    font-size: 0.8rem;
+  }
+
+  .bill-monitoring-page .monitor-actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .bill-monitoring-page .monitor-table th,
+  .bill-monitoring-page .monitor-table td {
+    padding: 7px;
+    font-size: 0.74rem;
+  }
+}

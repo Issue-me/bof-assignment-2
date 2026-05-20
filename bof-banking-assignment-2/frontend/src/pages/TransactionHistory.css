@@ -1,0 +1,322 @@
+/* =============================================
+   Bank of Fiji — Transaction History
+   ============================================= */
+
+.transaction-history-page {
+  max-inline-size: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.transaction-history-page .page-header {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(171, 227, 157, 0.17), transparent 42%),
+    linear-gradient(120deg, #232323 0%, #35295d 62%, #403072 100%);
+    box-shadow: 0 16px 30px rgba(21, 14, 48, 0.25);
+}
+
+.transaction-history-page .page-header h1 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+  color: #fff !important;
+}
+
+.transaction-history-page .page-header p {
+  margin-block-start: 8px;
+  color: #cbd5e1 !important;
+  font-size: 0.95rem;
+}
+
+.card {
+  margin-block-start: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  padding: 18px;
+}
+
+.transaction-history-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-block-start: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  padding: 18px;
+}
+
+.transaction-history-toolbar {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.transaction-history-toolbar h3 {
+  color: #1e3a8a;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.transaction-history-filters {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.transaction-history-filters label {
+  color: #334155;
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.transaction-history-filters select {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #1a2239;
+  font-size: 14px;
+  padding: 9px 10px;
+}
+
+.transaction-loading {
+  color: #33446a;
+  font-size: 0.95rem;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.transaction-empty-state {
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  color: #51607d;
+  margin: 0;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  background: #f8fafd;
+}
+
+.empty-icon {
+  display: none;
+}
+
+.transaction-empty-state h4 {
+  color: #243861;
+  margin: 0 0 0.8rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.transaction-empty-state p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.transaction-count {
+  color: #52648f;
+  font-size: 0.86rem;
+}
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.transaction-item {
+  background: #fcfdff;
+  border: 1px solid #e2e8f5;
+  border-inline-start: 4px solid transparent;
+  border-radius: 12px;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: auto 1fr auto;
+  padding: 1rem;
+}
+
+.transaction-item--credit {
+  border-inline-start-color: #1f9f5f;
+}
+
+.transaction-item--debit {
+  border-inline-start-color: #d64f4f;
+}
+
+.transaction-icon {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 0.95rem;
+  block-size: 32px;
+  justify-content: center;
+  margin-block-start: 0.1rem;
+  inline-size: 32px;
+}
+
+.transaction-item--credit .transaction-icon {
+  background: #e5f7ee;
+  color: #197a49;
+}
+
+.transaction-item--debit .transaction-icon {
+  background: #ffebeb;
+  color: #ab2e2e;
+}
+
+.transaction-main-row {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+
+.transaction-main-row h4 {
+  color: #17213a;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.transaction-pill {
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.55rem;
+  text-transform: uppercase;
+}
+
+.transaction-pill--credit {
+  background: #dcf5e8;
+  color: #14693f;
+}
+
+.transaction-pill--debit {
+  background: #ffe1e1;
+  color: #a73232;
+}
+
+.transaction-meta,
+.transaction-accounts {
+  color: #5f6d8e;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  gap: 0.7rem;
+  margin-block-start: 0.35rem;
+}
+
+.transaction-financials {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-inline-size: 170px;
+}
+
+.transaction-amount {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.transaction-amount--credit {
+  color: #177f4c;
+}
+
+.transaction-amount--debit {
+  color: #b93434;
+}
+
+.transaction-balance {
+  color: #5c6a85;
+  font-size: 0.82rem;
+  margin: 0.3rem 0 0;
+}
+
+.transaction-pagination {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-block-start: 0.5rem;
+  width: 100%;
+}
+
+
+ .transaction-pagination .pagination-info {
+  color: #334155;
+  font-size: 0.95rem !important;
+  margin: 0 8px;
+  padding: 2px 8px;
+  min-width: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .transaction-pagination .btn-secondary {
+  background: #ffffff;
+  border: 1px solid #c5d0e5;
+  color: #1a2f5f;
+  min-width: 80px;
+  width: auto !important;
+  align-self: center;
+  margin: 0 4px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #eff3fc;
+}
+
+.btn-secondary:disabled {
+  color: #9ca8bf;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .transaction-item {
+    grid-template-columns: auto 1fr;
+  }
+
+  .transaction-financials {
+    align-items: flex-start;
+    border-block-start: 1px solid #e5ebf8;
+    grid-column: 1 / -1;
+    margin-block-start: 0.35rem;
+    padding-block-start: 0.5rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .transaction-history-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .transaction-history-filters label {
+    min-inline-size: 100%;
+  }
+
+  .transaction-pagination {
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,89 @@
+.frcs-report-page {
+  max-inline-size: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  color: var(--bof-text);
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.frcs-report-page .page-header {
+ padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 90% 12%, rgba(171, 227, 157, 0.17), transparent 42%),
+    linear-gradient(120deg, #232323 0%, #35295d 62%, #403072 100%);
+    box-shadow: 0 16px 30px rgba(21, 14, 48, 0.25);
+}
+
+.frcs-report-page .page-header h1 {
+  margin: 0;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  letter-spacing: -0.01em;
+}
+
+.frcs-report-page .page-header p {
+  margin: 8px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
+.frcs-report-page > .card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e5dff6;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(40, 30, 86, 0.1);
+  padding: 18px;
+}
+
+.frcs-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-block-end: 14px;
+}
+
+.frcs-report-page .tax-card {
+  margin-block-end: 14px;
+}
+
+.frcs-report-page .card-title {
+  color: #2e2b58;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.frcs-report-page .summary-amount,
+.frcs-report-page .info-value,
+.frcs-report-page .info-value.mono,
+.frcs-report-page .tax-table td.amount,
+.frcs-report-page .tax-table td.amountright,
+.frcs-report-page .total-row td.amount,
+.frcs-report-page .tag,
+.frcs-report-page .badge {
+  font-family: inherit;
+}
+
+.frcs-report-page .year-select,
+.frcs-report-page .btn-outline,
+.frcs-report-page .btn-primary {
+  font-family: inherit;
+}
+
+@media (max-width: 760px) {
+  .frcs-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .frcs-report-page .page-header {
+    padding: 14px;
+  }
+
+  .frcs-report-page > .card {
+    padding: 14px;
+  }
+}

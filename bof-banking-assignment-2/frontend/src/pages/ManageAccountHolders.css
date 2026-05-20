@@ -1,0 +1,152 @@
+.manage-account-holders-page {
+  max-inline-size: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.manage-account-holders-page .page-header {
+  margin-block-end: 16px;
+}
+
+.manage-account-holders-page .page-header h1 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 1.6rem;
+}
+
+.manage-account-holders-page .page-header p {
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.holders-back-btn {
+  margin-block-end: 14px;
+}
+
+.holders-alert {
+  margin-block-end: 12px;
+  border-inline-start: 4px solid transparent;
+}
+
+.holders-alert p {
+  margin: 0;
+}
+
+.holders-alert-error {
+  background: #fef2f2;
+  border-inline-start-color: #dc2626;
+  color: #b91c1c;
+}
+
+.holders-alert-success {
+  background: #f0fdf4;
+  border-inline-start-color: #16a34a;
+  color: #15803d;
+}
+
+.holders-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-block-end: 16px;
+  flex-wrap: wrap;
+}
+
+.holders-toolbar h3 {
+  margin: 0;
+  color: #1e3a8a;
+  font-size: 1.12rem;
+}
+
+.holders-form-panel {
+  background: #f8fafc;
+  padding: 16px;
+  border-radius: 8px;
+  margin-block-end: 16px;
+}
+
+.holders-form-panel h4 {
+  margin: 0 0 12px;
+  color: #334155;
+}
+
+.holders-form-group {
+  margin-block-end: 12px;
+}
+
+.holders-form-group label {
+  display: block;
+  margin-block-end: 6px;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.holders-input {
+  inline-size: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 0.92rem;
+}
+
+.holders-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.holders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.holder-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.holder-item-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block-end: 4px;
+}
+
+.holder-role-badge {
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.holder-meta {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.holder-date-meta {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 780px) {
+  .holder-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .holders-form-actions {
+    flex-direction: column;
+  }
+}

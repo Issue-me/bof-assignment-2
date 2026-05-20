@@ -1,0 +1,35 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/app-production
+
+            # force sync with GitHub
+            git fetch origin
+            git reset --hard origin/production
+
+            cd backend
+
+            # build backend
+            ./mvnw clean package
+
+            # stop old app
+            pkill -f 'banking-1.0.0.jar' || true
+
+            # start new app
+            nohup java -jar target/banking-1.0.0.jar --server.port=8082 > app.log 2>&1 &

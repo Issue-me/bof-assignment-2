@@ -1,0 +1,1442 @@
+/* Consistent header and h1 styling for loan pages */
+/* Loan Management header matches Bill Management header styling */
+.loan-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(171, 227, 157, 0.17), transparent 42%),
+    linear-gradient(122deg, #232323 0%, #34265a 62%, #402f70 100%);
+  box-shadow: 0 16px 30px rgba(21, 14, 48, 0.26);
+}
+.loan-page-header h1 {
+  margin: 0;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  letter-spacing: -0.01em;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif !important;
+}
+.loan-page-header .section-title {
+  margin: 0;
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LoanApplication.css  — Bank of Fiji  (v2)
+   Aesthetic: Refined governmental authority — dark navy
+   anchors, warm gold accents, crisp mono data.
+   Extends TaxReport.css tokens.
+═══════════════════════════════════════════════════════ */
+
+/* Global font overrides for all loan/tax pages */
+.tax-page,
+.tax-page *,
+.loan-app-page,
+.loan-app-page * {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif !important;
+}
+
+/* Rule for all headings and text elements */
+.tax-page h1, .tax-page h2, .tax-page h3, .tax-page h4, .tax-page h5, .tax-page h6,
+.tax-page p, .tax-page span, .tax-page div, .tax-page button, .tax-page input,
+.tax-page select, .tax-page textarea, .tax-page label,
+.tax-page .card-title,
+.tax-page .tax-title,
+.tax-page .summary-amount,
+.tax-page .summary-label,
+.tax-page .income-row,
+.tax-page .income-grid,
+.tax-page .tax-badge,
+.tax-page .card, .tax-page section, .tax-page article {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif !important;
+}
+
+/* ═══════════════════════════════════════════
+   STEP PROGRESS BAR
+═══════════════════════════════════════════ */
+.loan-stepper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 18px 28px;
+  background: #fff;
+  border: 1px solid #e2e6f0;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(15,32,68,.06);
+  gap: 0;
+  overflow-x: auto;
+}
+
+.loan-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.loan-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid #d1d5e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+  background: #f9fafb;
+  transition: all .25s cubic-bezier(.4,0,.2,1);
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-step.active .loan-step-circle {
+  border-color: #0f2044;
+  background: #0f2044;
+  color: #fff;
+  box-shadow: 0 0 0 4px rgba(15,32,68,.12);
+}
+
+.loan-step.done .loan-step-circle {
+  border-color: #059669;
+  background: #059669;
+  color: #fff;
+}
+
+.loan-step-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #9ca3af;
+  white-space: nowrap;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  letter-spacing: .01em;
+}
+
+.loan-step.active .loan-step-label { color: #0f2044; font-weight: 600; }
+.loan-step.done  .loan-step-label  { color: #059669; }
+
+.loan-step-line {
+  flex: 1;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 10px;
+  min-width: 24px;
+  transition: background .3s;
+  border-radius: 2px;
+}
+.loan-step-line.done { background: #059669; }
+
+/* ═══════════════════════════════════════════
+   LOAN PRODUCT CARDS
+═══════════════════════════════════════════ */
+.loan-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.loan-product-card {
+  border: 1.5px solid #e2e6f0;
+  border-radius: 14px;
+  padding: 22px 20px;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .15s;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.loan-product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f2044, #c9983a);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.loan-product-card:hover {
+  border-color: #0f2044;
+  box-shadow: 0 8px 28px rgba(15,32,68,.12);
+  transform: translateY(-3px);
+}
+
+.loan-product-card:hover::before { opacity: 1; }
+
+.loan-product-card:hover .loan-product-icon {
+  transform: scale(1.1);
+}
+
+.loan-product-card.selected {
+  border-color: #0f2044;
+  border-width: 2px;
+  background: linear-gradient(145deg, #f0f4ff 0%, #fafbff 100%);
+  box-shadow: 0 8px 32px rgba(15,32,68,.14);
+}
+
+.loan-product-card.selected::before { opacity: 1; }
+
+.loan-product-icon {
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 16px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loan-icon-svg {
+  width: 44px;
+  height: 44px;
+  stroke-width: 2;
+}
+
+.loan-product-name {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #0f2044;
+}
+
+.loan-product-desc {
+  font-size: 12.5px;
+  color: #6b7280;
+  margin: 0 0 14px;
+  line-height: 1.55;
+}
+
+.loan-product-rate {
+  font-size: 13px;
+  font-weight: 600;
+  color: #059669;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-product-max {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 3px;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+/* ═══════════════════════════════════════════
+   PURPOSE PILLS
+═══════════════════════════════════════════ */
+.loan-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.loan-pill {
+  padding: 7px 18px;
+  border-radius: 24px;
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-pill:hover {
+  border-color: #0f2044;
+  color: #0f2044;
+  background: #f0f4ff;
+}
+
+.loan-pill.selected {
+  border-color: #0f2044;
+  background: #0f2044;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(15,32,68,.2);
+}
+
+/* ═══════════════════════════════════════════
+   FORM FIELDS
+═══════════════════════════════════════════ */
+.loan-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #6b7280;
+  margin-bottom: 7px;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+  box-sizing: border-box;
+}
+
+.loan-input:focus {
+  border-color: #0f2044;
+  box-shadow: 0 0 0 3px rgba(15,32,68,.08);
+}
+
+.loan-hint {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin-top: 5px;
+  display: block;
+  line-height: 1.4;
+}
+
+.loan-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.loan-field { display: flex; flex-direction: column; }
+
+/* ═══════════════════════════════════════════
+   REPAYMENT ESTIMATE BLOCK
+═══════════════════════════════════════════ */
+.loan-estimate {
+  background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 100%);
+  border: 1px solid #c7d4f0;
+  border-radius: 14px;
+  padding: 22px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loan-estimate::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0f2044, #c9983a, #0f2044);
+}
+
+.loan-estimate-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f2044;
+  margin: 0 0 16px;
+}
+
+.loan-estimate-note {
+  font-size: 11.5px;
+  color: #9ca3af;
+  margin: 14px 0 0;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* ═══════════════════════════════════════════
+   AFFORDABILITY / DSR INDICATOR
+═══════════════════════════════════════════ */
+.loan-affordability {
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loan-affordability.ok {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+.loan-affordability.warn {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+/* ═══════════════════════════════════════════
+   REVIEW GRID
+═══════════════════════════════════════════ */
+.loan-review-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+@media (max-width: 640px) {
+  .loan-review-grid { grid-template-columns: 1fr; }
+}
+
+.loan-review-section {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.loan-review-heading {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f2044;
+  margin: 0 0 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ═══════════════════════════════════════════
+   TERMS & CONDITIONS
+═══════════════════════════════════════════ */
+.loan-tnc {
+  background: #fafafa;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 10px;
+}
+
+.loan-tnc-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.65;
+  cursor: pointer;
+}
+
+.loan-tnc-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #0f2044;
+}
+
+/* ═══════════════════════════════════════════
+   LOAN CARD (My Loans page)
+═══════════════════════════════════════════ */
+.loan-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px 24px;
+  transition: box-shadow .2s, border-color .2s;
+  position: relative;
+}
+
+.loan-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 14px; bottom: 14px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: #e5e7eb;
+  transition: background .2s;
+}
+
+.loan-card:hover {
+  box-shadow: 0 6px 24px rgba(15,32,68,.09);
+  border-color: #c7d4f0;
+}
+
+.loan-card:hover::before { background: #0f2044; }
+
+.loan-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.loan-type-label {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #0f2044;
+}
+
+.loan-card-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+
+.loan-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.loan-stat-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #9ca3af;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-stat-value {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* ═══════════════════════════════════════════
+   ADMIN LOAN CARD ENHANCEMENTS
+═══════════════════════════════════════════ */
+.loan-card.admin-card {
+  border-left: none;
+  padding-left: 24px;
+}
+
+.loan-card.pending-card::before { background: #d97706; }
+.loan-card.active-card::before  { background: #059669; }
+.loan-card.rejected-card::before{ background: #dc2626; }
+.loan-card.closed-card::before  { background: #6366f1; }
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .loan-stepper { padding: 12px 16px; }
+  .loan-step-label { display: none; }
+  .loan-product-grid { grid-template-columns: 1fr 1fr; }
+  .loan-form-grid { grid-template-columns: 1fr; }
+  .loan-card { padding: 16px; }
+  .loan-card-body { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══════════════════════════════════════════
+   MODAL OVERLAY
+═══════════════════════════════════════════ */
+.loan-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,32,68,.55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeOverlay .15s ease;
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.loan-modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 32px;
+  width: 500px;
+  max-width: 95vw;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(15,32,68,.22);
+  animation: slideModal .2s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes slideModal {
+  from { opacity: 0; transform: translateY(16px) scale(.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.loan-modal-title {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f2044;
+  margin: 0 0 4px;
+}
+
+.loan-modal-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 22px;
+}
+
+/* ═══════════════════════════════════════════
+   DOCUMENT ROW
+═══════════════════════════════════════════ */
+.doc-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #fafafa;
+  transition: border-color .15s, background .15s;
+  flex-wrap: wrap;
+}
+
+.doc-row:hover { border-color: #c7d4f0; background: #f8faff; }
+
+.doc-row.uploaded {
+  border-color: rgba(5,150,105,.3);
+  background: rgba(236,253,245,.6);
+}
+
+.doc-row-info { flex: 1; min-width: 160px; }
+
+.doc-row-title {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #0f2044;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.doc-row-desc {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.doc-row-filename {
+  font-size: 11.5px;
+  color: #6b7280;
+  margin-top: 3px;
+  font-family: 'DM Mono', monospace;
+}
+
+.doc-row-error {
+  font-size: 12px;
+  color: #dc2626;
+  margin-top: 3px;
+}
+
+.doc-uploaded-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: rgba(5,150,105,.1);
+  border: 1px solid rgba(5,150,105,.3);
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   SUMMARY STAT CARDS OVERRIDE
+═══════════════════════════════════════════ */
+.loan-stat-card {
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.loan-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.09);
+}
+
+/* ═══════════════════════════════════════════
+   FILTER BAR (Admin page)
+═══════════════════════════════════════════ */
+.loan-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+/* ═══════════════════════════════════════════
+   REPAYMENT MODAL BALANCE BLOCK
+═══════════════════════════════════════════ */
+.repay-balance-block {
+  background: linear-gradient(135deg, #fef2f2, #fff5f5);
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.repay-balance-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.repay-balance-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   PROGRESS BAR OVERRIDE
+═══════════════════════════════════════════ */
+.loan-progress-bar {
+  height: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fee2e2;
+  display: flex;
+}
+
+.loan-progress-fill {
+  background: linear-gradient(90deg, #059669, #10b981);
+  border-radius: 8px;
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════════════════════════
+   SUCCESS STATE
+═══════════════════════════════════════════ */
+.loan-success-card {
+  text-align: center;
+  padding: 56px 32px;
+}
+
+.loan-success-icon {
+  font-size: 56px;
+  margin-bottom: 20px;
+  display: block;
+  animation: popIn .4s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes popIn {
+  from { transform: scale(.5); opacity: 0; }
+  to   { transform: scale(1);  opacity: 1; }
+}
+
+.loan-success-title {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #0f2044;
+  margin: 0 0 10px;
+}
+
+.loan-success-ref {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  border: 1px solid #93c5fd;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  margin: 14px 0 28px;
+  letter-spacing: .04em;
+}
+
+/* ═══════════════════════════════════════════
+   SECTION DIVIDER
+═══════════════════════════════════════════ */
+.loan-section-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #9ca3af;
+}
+
+.loan-section-divider::before,
+.loan-section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* ═══════════════════════════════════════════
+   INFO BANNER VARIANTS
+═══════════════════════════════════════════ */
+.loan-info-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.loan-info-banner.info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.loan-info-banner.warning {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+
+.loan-info-banner.danger {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.loan-info-banner-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ═══════════════════════════════════════════
+   ADMIN-SPECIFIC
+═══════════════════════════════════════════ */
+.admin-customer-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-customer-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: #111827;
+}
+
+.admin-customer-id {
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  color: #9ca3af;
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.admin-action-bar {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  padding-top: 14px;
+  border-top: 1px solid #f3f4f6;
+}
+
+/* Button size variants */
+.btn-sm {
+  font-size: 12.5px !important;
+  padding: 7px 16px !important;
+  border-radius: 8px !important;
+}
+
+.btn-danger {
+  background: transparent;
+  color: #dc2626;
+  border: 1.5px solid #fca5a5;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+.btn-danger:hover { background: #fef2f2; }
+.btn-danger:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: #6b7280;
+  border: 1.5px solid #e5e7eb;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+
+.btn-ghost:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #374151;
+}
+
+/* Command-center consistency overrides for loan management */
+
+.tax-page .loan-stepper {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #e5dff6;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(43, 30, 92, 0.09);
+}
+
+.tax-page .loan-step.active .loan-step-circle {
+  border-color: var(--bof-accent, #7a40ff);
+  background: var(--bof-accent, #7a40ff);
+  box-shadow: 0 0 0 4px rgba(122, 64, 255, 0.14);
+}
+
+.tax-page .loan-step.active .loan-step-label {
+  color: #4a2ab5;
+}
+
+.tax-page .loan-product-card {
+  border-color: #e5dff6;
+  border-radius: 14px;
+}
+
+.tax-page .loan-product-card::before {
+  background: linear-gradient(90deg, #7a40ff, #4a2ab5);
+}
+
+.tax-page .loan-product-card:hover,
+.tax-page .loan-product-card.selected {
+  border-color: #7a40ff;
+  box-shadow: 0 10px 26px rgba(78, 53, 160, 0.16);
+}
+
+.tax-page .loan-product-card.selected {
+  background: linear-gradient(145deg, #f4f0ff 0%, #fcfbff 100%);
+}
+
+.tax-page .loan-product-name,
+.tax-page .loan-review-heading,
+.tax-page .loan-type-label,
+.tax-page .loan-success-title,
+.tax-page .loan-modal-title,
+.tax-page .doc-row-title {
+  color: #2e2b58;
+}
+
+.tax-page .loan-pill:hover {
+  border-color: #7a40ff;
+  color: #4a2ab5;
+  background: rgba(122, 64, 255, 0.08);
+}
+
+.tax-page .loan-pill.selected {
+  border-color: #7a40ff;
+  background: #7a40ff;
+  box-shadow: 0 3px 10px rgba(78, 53, 160, 0.24);
+}
+
+.tax-page .loan-input:focus {
+  border-color: #7a40ff;
+  box-shadow: 0 0 0 3px rgba(122, 64, 255, 0.14);
+}
+
+.tax-page .loan-estimate {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f2edff 100%);
+  border-color: #ddd2fa;
+}
+
+.tax-page .loan-estimate::before {
+  background: linear-gradient(90deg, #7a40ff, #4a2ab5, #7a40ff);
+}
+
+.tax-page .loan-card,
+.tax-page .loan-filter-bar,
+.tax-page .loan-review-section,
+.tax-page .loan-tnc,
+.tax-page .loan-modal {
+  border-color: #e5dff6;
+}
+
+.tax-page .loan-card:hover,
+.tax-page .doc-row:hover {
+  border-color: #d2c4fa;
+}
+
+.tax-page .loan-card::before {
+  background: #d8cff9;
+}
+
+.tax-page .loan-card:hover::before {
+  background: #7a40ff;
+}
+
+.tax-page .loan-modal-overlay {
+  background: rgba(22, 15, 46, 0.56);
+}
+
+.tax-page .loan-success-ref {
+  background: #f1ebff;
+  color: #4a2ab5;
+  border-color: #d8cffa;
+}
+
+.tax-page .btn-danger {
+  color: #b4233f;
+  border-color: #ffc7d3;
+}
+
+.tax-page .btn-danger:hover {
+  background: #fff2f5;
+}
+
+.tax-page .btn-ghost {
+  color: #5b617e;
+  border-color: #e5dff6;
+}
+
+.tax-page .btn-ghost:hover {
+  background: #faf8ff;
+  border-color: #d2c4fa;
+  color: #4a2ab5;
+}
+
+/* Admin Loans page: align typography/spacing to TaxReport card scale */
+
+.admin-loans-page .tax-card {
+  padding: 18px;
+}
+
+.admin-loans-page .summary-grid {
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.admin-loans-page .loan-card {
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.admin-loans-page .loan-card-header {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-loans-page .loan-type-label {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e2b58;
+}
+
+.admin-loans-page .loan-card-body {
+  gap: 12px;
+}
+
+.admin-loans-page .loan-stat {
+  gap: 3px;
+}
+
+.admin-loans-page .loan-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: #64748b;
+}
+
+.admin-loans-page .loan-stat-value {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.admin-loans-page .admin-customer-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.admin-loans-page .admin-customer-id {
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+
+.admin-loans-page .admin-action-bar {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e2e8f0;
+  gap: 10px;
+}
+
+.admin-loans-page .loan-info-banner {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.admin-loans-page .loan-modal {
+  border: 1px solid #e5dff6;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.admin-loans-page .loan-modal-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #2e2b58;
+}
+
+.admin-loans-page .loan-modal-sub {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.admin-loans-page .doc-row {
+  padding: 11px 12px;
+  border-radius: 10px;
+}
+
+.admin-loans-page .doc-row-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-loans-page .doc-row-filename {
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .admin-loans-page .tax-card {
+    padding: 14px;
+  }
+
+  .admin-loans-page .loan-card {
+    padding: 14px;
+  }
+
+  .admin-loans-page .loan-card-body {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .admin-loans-page .loan-modal {
+    padding: 16px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   ENHANCED BUTTON VISIBILITY & STYLING
+═══════════════════════════════════════════════════════ */
+
+/* Primary button enhancements - increased visibility */
+.tax-page .btn-primary,
+.tax-page button.btn-primary {
+  background: linear-gradient(135deg, #0f2044 0%, #1a2f5a 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(15, 32, 68, 0.25);
+  letter-spacing: 0.01em;
+}
+
+.tax-page .btn-primary:hover:not(:disabled),
+.tax-page button.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1a2f5a 0%, #0f2044 100%);
+  box-shadow: 0 8px 20px rgba(15, 32, 68, 0.35);
+  transform: translateY(-2px);
+}
+
+.tax-page .btn-primary:active:not(:disabled),
+.tax-page button.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(15, 32, 68, 0.25);
+}
+
+.tax-page .btn-primary:disabled,
+.tax-page button.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Outline button enhancements */
+.tax-page .btn-outline,
+.tax-page button.btn-outline {
+  background: #fff;
+  border: 2px solid #0f2044;
+  color: #0f2044;
+  font-weight: 600;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tax-page .btn-outline:hover:not(:disabled),
+.tax-page button.btn-outline:hover:not(:disabled) {
+  background: #f0f4ff;
+  border-color: #1a2f5a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 32, 68, 0.15);
+}
+
+/* Ghost button improvements */
+.tax-page .btn-ghost,
+.tax-page button.btn-ghost {
+  background: transparent;
+  border: 1.5px solid #d1d5db;
+  color: #6b7280;
+  font-weight: 500;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tax-page .btn-ghost:hover:not(:disabled),
+.tax-page button.btn-ghost:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #0f2044;
+  color: #0f2044;
+}
+
+/* Small button size improvements */
+.tax-page .btn-sm,
+.tax-page button.btn-sm {
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.tax-page .btn-sm.btn-primary,
+.tax-page button.btn-sm.btn-primary {
+  padding: 9px 18px;
+}
+
+/* Modal button styling */
+.tax-page .loan-modal .btn-primary {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.tax-page .loan-modal .loan-affordability.ok {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: #a7f3d0;
+  color: #065f46;
+}
+
+/* Action bar button group */
+.tax-page .admin-action-bar {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f3f4f6;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tax-page .admin-action-bar .btn-primary {
+  margin: 0;
+}
+
+/* Repayment action styling */
+.tax-page .admin-action-bar > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Actions card footer button group */
+.tax-page .actions-card {
+  margin-top: 24px;
+}
+
+.tax-page .actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tax-page .actions-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.tax-page .actions-buttons .btn-primary,
+.tax-page .actions-buttons .btn-outline {
+  min-width: 120px;
+}
+
+/* Manage Loan Rates page: align typography with app shell and tax modules */
+
+.tax-page.loan-rates-page {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+}
+
+.loan-rates-page .tax-title,
+.loan-rates-page .card-title {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+}
+
+.loan-rates-page .tax-subtitle {
+  color: var(--text-secondary);
+}
+
+.loan-rates-page .loan-rates-info-banner {
+  border-radius: 10px;
+  line-height: 1.55;
+}
+
+.loan-rates-page .loan-rates-grid {
+  gap: 16px;
+}
+
+.loan-rates-page .loan-rates-card {
+  border-radius: 16px !important;
+}
+
+.loan-rates-page .income-row {
+  padding: 12px 6px;
+}
+
+@media (max-width: 640px) {
+  .loan-rates-page .loan-rates-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════
+   IMPROVED SUMMARY CARDS - CENTERING & ALIGNMENT
+═══════════════════════════════════════════════════════ */
+
+.tax-page .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tax-page .summary-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 6px;
+  min-height: 110px;
+}
+
+.tax-page .summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(229, 231, 235, 0.8);
+}
+
+.tax-page .summary-label {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
+  margin: 0;
+  display: block;
+}
+
+.tax-page .summary-amount {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin: 2px 0 0 0;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.tax-page .summary-sub {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #9ca3af;
+  margin: 2px 0 0 0;
+  line-height: 1.3;
+}

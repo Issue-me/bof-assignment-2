@@ -1,0 +1,195 @@
+.transfer-limits-page {
+  background: linear-gradient(135deg, #f8faff 0%, #eef5ff 100%);
+  min-block-size: 100vh;
+  padding-block: 20px;
+}
+
+.transfer-limits-main {
+  margin-block-start: 0;
+  max-inline-size: 1000px;
+  padding-inline: 12px;
+  margin-inline: auto;
+}
+
+.transfer-limits-page .welcome-banner {
+  background: linear-gradient(135deg, #0041a6 0%, #0058d9 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 1.2rem 2.2rem;
+  box-shadow: 0 8px 32px rgba(0, 41, 166, 0.15);
+  max-inline-size: 580px;
+  margin: 0 auto 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.transfer-limits-page .welcome-banner::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -50%;
+  inset-inline-end: -10%;
+  inline-size: 300px;
+  block-size: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.transfer-limits-page .welcome-banner h2 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.transfer-limits-page .welcome-banner p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.transfer-limits-card {
+  background: #fff;
+  border: 1.5px solid #e8f0ff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 41, 166, 0.06);
+  padding: 1.8rem;
+  max-inline-size: 800px;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.transfer-limits-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 41, 166, 0.1);
+}
+
+.transfer-limits-group {
+  margin-block-end: 1.6rem;
+  padding-block-end: 1.2rem;
+  border-block-end: 1px solid #e8eefb;
+}
+
+.transfer-limits-group:last-child {
+  border-block-end: none;
+}
+
+.transfer-limits-group h3 {
+  margin-block-end: 0.9rem;
+  color: #0041a6;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.transfer-limits-table-wrap {
+  overflow-x: auto;
+  border: 1.5px solid #e8eefb;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #fafbff 0%, #f5f8ff 100%);
+}
+
+.transfer-limits-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.transfer-limits-table th,
+.transfer-limits-table td {
+  padding: 1rem;
+  border-block-end: 1px solid #e8eefb;
+  text-align: start;
+  font-weight: 500;
+}
+
+.transfer-limits-table th {
+  color: #1f2937;
+  background: #f8fbff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.transfer-limits-table td {
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.transfer-limits-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.transfer-limits-table tbody tr:hover {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f6ff 100%);
+}
+
+.transfer-limits-table .ta-right {
+  text-align: end;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.transfer-limits-table tbody tr:last-child td {
+  border-block-end: none;
+}
+
+.transfer-limits-timezone {
+  color: #6b7280;
+  display: block;
+  margin-block-start: 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .transfer-limits-page {
+    padding-block: 12px;
+  }
+
+  .transfer-limits-main {
+    margin-block-start: 0;
+    max-inline-size: 100%;
+    padding-inline: 8px;
+  }
+
+  .transfer-limits-page .welcome-banner {
+    padding: 1.5rem 1.4rem;
+    max-inline-size: 100%;
+    margin-block-end: 1.5rem;
+  }
+
+  .transfer-limits-page .welcome-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .transfer-limits-card {
+    padding: 1.4rem;
+    max-inline-size: 100%;
+  }
+
+  .transfer-limits-group {
+    margin-block-end: 1.2rem;
+    padding-block-end: 1rem;
+  }
+
+  .transfer-limits-group h3 {
+    font-size: 1.2rem;
+  }
+
+  .transfer-limits-table th,
+  .transfer-limits-table td {
+    padding: 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .transfer-limits-timezone {
+    margin-block-start: 0.8rem;
+  }
+}

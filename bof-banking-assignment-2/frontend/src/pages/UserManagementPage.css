@@ -1,0 +1,114 @@
+.user-management-page {
+  max-inline-size: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.user-management-page .page-header h1 {
+  margin: 0;
+  color: #1e3a8a;
+}
+
+.user-management-page .page-header p {
+  margin-block-start: 8px;
+  color: #64748b;
+}
+
+.user-management-page .card {
+  margin-block-start: 16px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  padding: 18px;
+}
+
+.user-management-page .table-wrap {
+  overflow-x: auto;
+}
+
+.user-management-page .monitor-table {
+  inline-size: 100%;
+  border-collapse: collapse;
+}
+
+.user-management-page .monitor-table th,
+.user-management-page .monitor-table td {
+  border-block-end: 1px solid #e2e8f0;
+  padding: 10px;
+  text-align: start;
+  font-size: 14px;
+}
+
+.user-management-page .monitor-table th {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.user-management-page .monitor-table tbody tr:hover {
+  background: #f8fafc;
+}
+
+.user-management-page .btn {
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-management-page .btn-secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.user-management-page .loading {
+  color: #334155;
+}
+
+.user-management-page .alert {
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.user-management-page .alert-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.user-management-page .role-chip {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.user-management-page .status-chip {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.user-management-page .status-chip.active {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.user-management-page .status-chip.inactive {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.user-management-page .center {
+  text-align: center;
+}
+
+.user-management-page .muted {
+  color: #64748b;
+}

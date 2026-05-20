@@ -1,0 +1,694 @@
+/* Unified BoF app theme inspired by the dashboard shell design */
+:root {
+  --bof-shell: #232323;
+  --bof-shell-elevated: #2f2f2f;
+  --bof-shell-border: rgba(255, 255, 255, 0.1);
+
+  --bof-accent: #7a40ff;
+  --bof-accent-hover: #6433d6;
+  --bof-accent-soft: rgba(122, 64, 255, 0.14);
+  --bof-highlight: #abe39d;
+  --bof-highlight-hover: #8ccc7b;
+
+  --bof-bg: #f5f4fb;
+  --bof-bg-alt: #eceaf8;
+  --bof-surface: #ffffff;
+  --bof-border: #e5e1f4;
+  --bof-text: #1f2130;
+  --bof-text-muted: #646a82;
+  --bof-danger: #b4233f;
+  --bof-success: #127c50;
+  --bof-warning: #b7681e;
+
+  --bof-radius-lg: 16px;
+  --bof-radius-md: 12px;
+  --bof-radius: var(--bof-radius-lg);
+  --bof-shadow: 0 10px 24px rgba(47, 37, 95, 0.08);
+  --bof-shadow-hover: 0 16px 32px rgba(78, 53, 160, 0.14);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  min-block-size: 100%;
+}
+
+body {
+  font-family: "Sora", "Manrope", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(122, 64, 255, 0.12), transparent 36%),
+    radial-gradient(circle at 0% 100%, rgba(171, 227, 157, 0.15), transparent 38%),
+    linear-gradient(180deg, var(--bof-bg) 0%, var(--bof-bg-alt) 100%);
+  color: var(--bof-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+}
+
+/* Shared page frame */
+.dashboard-wrapper,
+.transaction-history-page,
+.transfer-page,
+.transfer-limits-page,
+.user-management-page,
+.frcs-report-page,
+.manage-holders-hub-page,
+.manage-account-holders-page,
+.transaction-monitoring-page,
+.biller-management-page,
+.bill-monitoring-page,
+.manage-accounts-page,
+.statements-page,
+.tax-page {
+  color: var(--bof-text);
+}
+
+.page-header {
+  margin-block-end: 20px;
+}
+
+.page-header h1,
+.page-title,
+.statements-container h1 {
+  color: #24284a !important;
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin-block-end: 6px;
+}
+
+.page-header p,
+.page-subtitle {
+  color: var(--bof-text-muted) !important;
+  font-size: 0.95rem;
+}
+
+/* Shared cards and sections */
+.card,
+.tax-card,
+.summary-card,
+.statement-card,
+.stat-card,
+.accounts-table-container,
+.monitoring-card,
+.transaction-history-card,
+.loan-card,
+.alerts-card,
+.profile-card,
+.services-card {
+  background: var(--bof-surface) !important;
+  border: 1px solid var(--bof-border) !important;
+  border-radius: var(--bof-radius-lg);
+  box-shadow: var(--bof-shadow);
+}
+
+.card:hover,
+.statement-card:hover,
+.summary-card:hover,
+.stat-card:hover,
+.loan-card:hover {
+  box-shadow: var(--bof-shadow-hover);
+}
+
+/* Generic buttons */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-danger,
+.btn-success,
+.btn-warning,
+.btn-download,
+.btn-view,
+.btn-back,
+.btn-refresh,
+.btn-add-account,
+button[class*="btn-"] {
+  border-radius: var(--bof-radius-md);
+  border: 1px solid transparent;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  min-block-size: 38px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary,
+.btn.btn-primary,
+.btn-success,
+.btn.btn-success,
+.btn-download,
+.btn-refresh,
+.btn-add-account,
+.btn-primary:not(.btn) {
+  background: var(--bof-accent) !important;
+  color: #fff !important;
+  border-color: var(--bof-accent) !important;
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover,
+.btn-success:hover,
+.btn.btn-success:hover,
+.btn-download:hover,
+.btn-refresh:hover,
+.btn-add-account:hover {
+  background: var(--bof-accent-hover) !important;
+  border-color: var(--bof-accent-hover) !important;
+  transform: translateY(-1px);
+}
+
+.btn-secondary,
+.btn.btn-secondary,
+.btn-outline,
+.btn.btn-outline,
+.btn-view,
+.btn-back,
+.btn-warning,
+.btn.btn-warning {
+  background: var(--bof-accent-soft) !important;
+  color: #4a2ab5 !important;
+  border-color: rgba(122, 64, 255, 0.28) !important;
+}
+
+.btn-secondary:hover,
+.btn.btn-secondary:hover,
+.btn-outline:hover,
+.btn.btn-outline:hover,
+.btn-view:hover,
+.btn-back:hover,
+.btn-warning:hover,
+.btn.btn-warning:hover {
+  background: rgba(122, 64, 255, 0.22) !important;
+}
+
+.btn-back-outline,
+.btn.btn-back-outline {
+  background: transparent !important;
+  color: #8b5cf6 !important;
+  border-color: #8b5cf6 !important;
+  border-width: 2px !important;
+}
+
+.btn-back-outline:hover,
+.btn.btn-back-outline:hover {
+  background: rgba(139, 92, 246, 0.08) !important;
+  border-color: #a78bfa !important;
+  color: #7c3aed !important;
+}
+
+.btn-danger,
+.btn.btn-danger {
+  background: #fff2f5 !important;
+  color: var(--bof-danger) !important;
+  border-color: #ffc7d3 !important;
+}
+
+.btn-danger:hover,
+.btn.btn-danger:hover {
+  background: #ffe7ee !important;
+}
+
+.btn:disabled,
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-outline:disabled,
+.btn-danger:disabled,
+.btn-success:disabled,
+.btn-warning:disabled,
+.btn-download:disabled,
+.btn-view:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Shared forms */
+input,
+select,
+textarea,
+.form-group input,
+.form-group select,
+.form-group textarea,
+.biller-form input,
+.biller-form select,
+.biller-form textarea,
+.filters-grid input,
+.filters-grid select,
+.filters-grid textarea {
+  background: #fff;
+  border: 1px solid #d8d0ee;
+  border-radius: 10px;
+  color: var(--bof-text);
+  min-block-size: 40px;
+  padding: 9px 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.biller-form input:focus,
+.biller-form select:focus,
+.biller-form textarea:focus,
+.filters-grid input:focus,
+.filters-grid select:focus,
+.filters-grid textarea:focus {
+  border-color: var(--bof-accent);
+  box-shadow: 0 0 0 3px rgba(122, 64, 255, 0.16);
+  outline: none;
+}
+
+label,
+.form-group label,
+.biller-form label,
+.filters-grid label {
+  color: #4f5570;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+/* Shared tables */
+table,
+.accounts-table,
+.monitor-table,
+.tax-table,
+.statement-table {
+  inline-size: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}
+
+th,
+td,
+.accounts-table th,
+.accounts-table td,
+.monitor-table th,
+.monitor-table td,
+.tax-table th,
+.tax-table td {
+  border-block-end: 1px solid #ece8f7;
+  padding: 12px 14px;
+  text-align: start;
+}
+
+th,
+.accounts-table th,
+.monitor-table th,
+.tax-table th {
+  background: #f4f1fc;
+  color: #56507a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+tbody tr:hover,
+.accounts-table tbody tr:hover,
+.monitor-table tbody tr:hover,
+.tax-table tbody tr:hover {
+  background: #f9f7ff;
+}
+
+.table-wrap,
+.accounts-table-container,
+.card > div[style*="overflowX"] {
+  border: 1px solid #ece8f7;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+/* Re-skin auth screens to match the same palette */
+.auth-wrapper {
+  background:
+    radial-gradient(circle at 95% 8%, rgba(171, 227, 157, 0.2), transparent 30%),
+    radial-gradient(circle at 8% 92%, rgba(122, 64, 255, 0.26), transparent 42%),
+    linear-gradient(135deg, #232323 0%, #2e243f 48%, #3e2a70 100%) !important;
+}
+
+.auth-card {
+  border: 1px solid #d8d1ef;
+  box-shadow: 0 28px 70px rgba(17, 15, 39, 0.33);
+}
+
+.bank-logo h1 {
+  color: #2f2b5f !important;
+}
+
+@media (max-width: 768px) {
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline,
+  .btn-danger,
+  .btn-success,
+  .btn-warning,
+  .btn-download,
+  .btn-view,
+  .btn-back {
+    min-block-size: 36px;
+    padding: 7px 12px;
+    font-size: 0.88rem;
+  }
+
+  th,
+  td,
+  .accounts-table th,
+  .accounts-table td,
+  .monitor-table th,
+  .monitor-table td,
+  .tax-table th,
+  .tax-table td {
+    padding: 10px;
+    font-size: 0.86rem;
+  }
+}
+
+/* Command-center rollout for remaining routed pages */
+
+:is(
+  .transfer-page,
+  .transfer-limits-page,
+  .statements-page,
+  .transaction-history-page,
+  .transaction-monitoring-page,
+  .bill-monitoring-page,
+  .biller-management-page,
+  .manage-account-holders-page,
+  .manage-holders-hub-page,
+  .manage-accounts-page,
+  .user-management-page,
+  .frcs-report-page,
+  .tax-page
+) {
+  max-inline-size: 1320px;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+:is(.transfer-page-main, .transfer-limits-main, .dashboard-main) {
+  max-inline-size: 1320px;
+  margin-inline: auto;
+  padding: 0 !important;
+}
+
+:is(.transfer-page, .transfer-limits-page) .welcome-banner {
+  background:
+    radial-gradient(circle at 90% 12%, rgba(171, 227, 157, 0.18), transparent 38%),
+    linear-gradient(120deg, #232323 0%, #34275a 62%, #413072 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  box-shadow: 0 20px 34px rgba(20, 14, 49, 0.28);
+  color: #ffffff;
+  max-inline-size: 100% !important;
+  margin: 0 0 14px !important;
+  padding: 20px 24px !important;
+}
+
+:is(.transfer-page, .transfer-limits-page) .welcome-banner h2 {
+  color: #ffffff;
+  font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+  margin: 0;
+}
+
+:is(.transfer-page, .transfer-limits-page) .welcome-banner p {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+:is(.transfer-page, .transfer-limits-page) .card {
+  max-inline-size: 100% !important;
+}
+
+:is(.transfer-page, .transfer-limits-page) .auth-form {
+  display: grid;
+  gap: 12px;
+}
+
+:is(.transfer-page, .transfer-limits-page) .transfer-confirmation {
+  border-radius: 14px;
+  border: 1px solid #e6def8;
+  background: #fbf9ff;
+}
+
+:is(
+  .transaction-monitoring-page,
+  .bill-monitoring-page,
+  .biller-management-page,
+  .user-management-page,
+  .transaction-history-page
+) .card {
+  margin-top: 12px;
+}
+
+:is(
+  .monitoring-grid,
+  .monitor-grid,
+  .transaction-history-filters,
+  .filter-controls,
+  .toolbar-controls,
+  .date-range-inputs,
+  .monitoring-actions,
+  .monitor-actions,
+  .form-actions,
+  .page-header-actions,
+  .frcs-controls,
+  .tax-header-controls
+) {
+  gap: 10px;
+}
+
+:is(
+  .monitoring-grid input,
+  .monitoring-grid select,
+  .monitor-grid input,
+  .monitor-grid select,
+  .toolbar-controls input,
+  .toolbar-controls select,
+  .transaction-history-filters select,
+  .year-select,
+  .account-select
+) {
+  border: 1px solid #d8d0ee !important;
+  border-radius: 10px;
+  min-block-size: 40px;
+  background: #ffffff;
+}
+
+:is(
+  .monitoring-table,
+  .monitor-table,
+  .history-table,
+  .accounts-table,
+  .statement-table,
+  .transfer-limits-table
+) {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+:is(
+  .monitoring-table thead,
+  .monitor-table thead,
+  .history-table thead,
+  .accounts-table thead,
+  .transfer-limits-table thead
+) {
+  background: transparent !important;
+}
+
+:is(
+  .monitoring-table th,
+  .monitor-table th,
+  .history-table th,
+  .accounts-table th,
+  .transfer-limits-table th,
+  .statement-table th
+) {
+  background: #f4f1fc !important;
+  color: #56507a !important;
+  border-block-end: 1px solid #ece8f7 !important;
+}
+
+:is(
+  .monitoring-table td,
+  .monitor-table td,
+  .history-table td,
+  .accounts-table td,
+  .transfer-limits-table td,
+  .statement-table td
+) {
+  border-block-end: 1px solid #ece8f7 !important;
+}
+
+:is(
+  .monitoring-table tbody tr:hover,
+  .monitor-table tbody tr:hover,
+  .history-table tbody tr:hover,
+  .accounts-table tbody tr:hover,
+  .transfer-limits-table tbody tr:hover,
+  .statement-table tbody tr:hover
+) {
+  background: #f9f7ff !important;
+}
+
+.statements-page {
+  background: transparent !important;
+  min-block-size: auto !important;
+}
+
+.statements-container {
+  max-inline-size: 1320px;
+  margin: 0 auto;
+  border-radius: 18px;
+  padding: 18px !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 14px 28px rgba(42, 31, 83, 0.1);
+}
+
+.account-selection-section {
+  background: #faf8ff !important;
+  border: 1px solid #e8e2f6;
+  border-radius: 14px;
+}
+
+.custom-statement-section {
+  background:
+    radial-gradient(circle at 82% 15%, rgba(171, 227, 157, 0.2), transparent 40%),
+    linear-gradient(120deg, #242430 0%, #32265a 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 15px;
+  box-shadow: 0 16px 30px rgba(23, 16, 54, 0.24);
+}
+
+.custom-statement-section h2,
+.custom-statement-section .date-range-note,
+.custom-statement-section label {
+  color: #ffffff !important;
+}
+
+.custom-statement-section input[type='date'] {
+  border: 1px solid rgba(255, 255, 255, 0.36) !important;
+  background: rgba(255, 255, 255, 0.13) !important;
+  color: #ffffff !important;
+}
+
+.statements-list-section {
+  margin-top: 22px !important;
+}
+
+.statements-grid {
+  gap: 12px !important;
+}
+
+.statement-card {
+  border: 1px solid #e8e2f6 !important;
+  border-radius: 14px !important;
+  background: #ffffff !important;
+}
+
+.statement-header {
+  border-block-end: 1px solid #ece8f7 !important;
+}
+
+.statement-header h3 {
+  color: #2f2f4a !important;
+}
+
+.statement-id {
+  border: 1px solid #ddd4f8;
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: #f8f5ff;
+  color: #4a3d82;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.empty-state,
+.loading-state {
+  background: #faf8ff !important;
+  border: 1px dashed #ddd2f8 !important;
+  border-radius: 14px !important;
+}
+
+.summary-card {
+  border-radius: 14px !important;
+  border: 1px solid #e8e2f6 !important;
+}
+
+.summary-card.green {
+  background: linear-gradient(135deg, #effdf2 0%, #e5f9ec 100%) !important;
+}
+
+.summary-card.blue {
+  background: linear-gradient(135deg, #f0f6ff 0%, #e7f0ff 100%) !important;
+}
+
+.summary-card.red {
+  background: linear-gradient(135deg, #fff2f4 0%, #fee9ee 100%) !important;
+}
+
+.summary-card.yellow {
+  background: linear-gradient(135deg, #fff8ea 0%, #fff2d8 100%) !important;
+}
+
+.summary-card.purple {
+  background: linear-gradient(135deg, #f5f1ff 0%, #eee5ff 100%) !important;
+}
+
+.tax-card {
+  border-radius: 14px !important;
+  border: 1px solid #e8e2f6 !important;
+  background: #fcfbff !important;
+}
+
+.card-title {
+  color: #2e2b58 !important;
+}
+
+.loan-card {
+  border-radius: 14px !important;
+  border: 1px solid #e8e2f6 !important;
+  background: #ffffff !important;
+}
+
+@media (max-width: 900px) {
+  .statements-container {
+    padding: 14px !important;
+  }
+
+  .statement-actions {
+    grid-template-columns: 1fr !important;
+  }
+}

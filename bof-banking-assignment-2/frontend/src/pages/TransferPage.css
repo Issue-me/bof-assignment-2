@@ -1,0 +1,493 @@
+.transfer-page {
+  background: linear-gradient(135deg, #f8faff 0%, #eef5ff 100%);
+  min-block-size: 100vh;
+  padding-block: 20px;
+}
+
+.transfer-page-main {
+  margin-block-start: 0;
+  max-inline-size: 1000px;
+  padding-inline: 12px;
+  margin-inline: auto;
+}
+
+.transfer-page .welcome-banner {
+  background: linear-gradient(135deg, #0041a6 0%, #0058d9 100%);
+  border-radius: 16px;
+  padding: 2rem 2.2rem;
+  box-shadow: 0 8px 32px rgba(0, 41, 166, 0.15);
+  max-inline-size: 600px;
+  margin: 0 auto 2rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.transfer-page .welcome-banner::before {
+  content: "";
+  position: absolute;
+  inset-block-start: -50%;
+  inset-inline-end: -10%;
+  inline-size: 300px;
+  block-size: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.transfer-page .welcome-banner h2 {
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.transfer-page .welcome-banner p {
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.transfer-page .card {
+  background: #fff;
+  border: 1px solid #e8f0ff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 41, 166, 0.06);
+  padding: 1.8rem;
+  max-inline-size: 420px;
+  margin: 0 auto;
+  transition: box-shadow 0.3s ease;
+}
+
+.transfer-page .card:hover {
+  box-shadow: 0 8px 32px rgba(0, 41, 166, 0.1);
+}
+
+.transfer-page .auth-form label {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: block;
+  margin-block-end: 0.55rem;
+  letter-spacing: 0.005em;
+}
+
+.transfer-page .auth-form input:not([type="radio"]),
+.transfer-page .auth-form select {
+  border: 1.5px solid #e0e8f5;
+  border-radius: 10px;
+  background: #f8fbff;
+  min-block-size: 44px;
+  padding-inline: 0.95rem;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  color: #1f2937;
+}
+
+.transfer-page .auth-form input::placeholder,
+.transfer-page .auth-form select::placeholder {
+  color: #9ca3af;
+}
+
+.transfer-page .auth-form input:not([type="radio"]):focus,
+.transfer-page .auth-form select:focus {
+  border-color: #0041a6;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 65, 166, 0.08), inset 0 0 0 1px rgba(0, 65, 166, 0.02);
+  outline: none;
+}
+
+.transfer-page .btn {
+  min-block-size: 44px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.transfer-page .btn-full {
+  inline-size: 100%;
+  font-size: 0.98rem;
+}
+
+.transfer-page .btn.btn-primary {
+  background: linear-gradient(135deg, #0041a6 0%, #0058d9 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 65, 166, 0.2);
+}
+
+.transfer-page .btn.btn-primary:hover {
+  background: linear-gradient(135deg, #003090 0%, #004dc0 100%);
+  box-shadow: 0 8px 20px rgba(0, 65, 166, 0.3);
+  transform: translateY(-1px);
+}
+
+.transfer-page .btn.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 65, 166, 0.2);
+}
+
+.transfer-page .btn.btn-secondary {
+  background: #f3f6fc;
+  color: #1f56e0;
+  border: 1.5px solid #e0e8f5;
+}
+
+.transfer-page .btn.btn-secondary:hover {
+  background: #e8ecf7;
+  border-color: #d0daf0;
+}
+
+.transfer-page .alert {
+  border-radius: 10px;
+  padding: 0.95rem 1rem;
+  margin-block-end: 1rem;
+  font-weight: 500;
+  font-size: 0.92rem;
+  animation: slideInDown 0.3s ease;
+}
+
+.transfer-page .alert-error {
+  background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+  border-inline-start-width: 3px;
+}
+
+.transfer-page .alert-success {
+  background: linear-gradient(135deg, #f0fdf4 0%, #e6ffed 100%);
+  color: #166534;
+  border: 1px solid #86efac;
+  border-inline-start-width: 3px;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.transfer-destination-type {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-block-end: 1.2rem;
+}
+
+.transfer-page .auth-form .transfer-destination-type label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.55rem;
+  color: #1f2937;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: start;
+  margin-block-end: 0;
+  transition: all 0.2s ease;
+}
+
+.transfer-page .auth-form .transfer-destination-type input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  inline-size: 14px !important;
+  block-size: 14px !important;
+  min-inline-size: 14px !important;
+  min-block-size: 14px !important;
+  max-inline-size: 14px !important;
+  max-block-size: 14px !important;
+  border-radius: 50%;
+  border: 1.5px solid #94a3b8;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  padding: 0 !important;
+  padding-inline: 0 !important;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.transfer-page .auth-form .transfer-destination-type input[type="radio"]:hover {
+  border-color: #0041a6;
+}
+
+.transfer-page .auth-form .transfer-destination-type input[type="radio"]:checked {
+  border-color: #0041a6;
+  background: #fff;
+}
+
+.transfer-page .auth-form .transfer-destination-type input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: #0041a6;
+}
+
+.transfer-page .auth-form .transfer-destination-type input[type="radio"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.transfer-confirmation {
+  background: linear-gradient(135deg, #f8fbff 0%, #f0f6ff 100%);
+  border: 1.5px solid #e0e8f5;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-block-start: 1.2rem;
+}
+
+.transfer-confirmation-header {
+  margin-block-end: 1.2rem;
+  padding-block-end: 1rem;
+  border-block-end: 1px solid #e0e8f5;
+}
+
+.transfer-confirmation-header h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.transfer-confirmation-header p {
+  margin: 0.4rem 0 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.transfer-confirmation-grid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.transfer-confirmation-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: 1px solid #e8eefb;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.transfer-confirmation-row:hover {
+  background: #f8fbff;
+  border-color: #d0d8f0;
+}
+
+.transfer-confirmation-label {
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.transfer-confirmation-value {
+  color: #1f2937;
+  font-weight: 600;
+  word-break: break-word;
+  font-size: 0.96rem;
+}
+
+.transfer-confirmation-amount {
+  color: #0041a6;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.transfer-confirmation-warning {
+  margin: 1.2rem 0;
+  border: 1.5px solid #faa5a5;
+  border-inline-start-width: 4px;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffeaea 100%);
+  color: #991b1b;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.transfer-confirmation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+  margin-block-start: 1.2rem;
+  padding-block-start: 0.8rem;
+  border-block-start: 1px solid #e0e8f5;
+}
+
+.transfer-confirmation-actions .btn {
+  min-block-size: 44px;
+}
+
+.transfer-otp-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+.transfer-otp-modal {
+  inline-size: min(100%, 480px);
+  background: #ffffff;
+  border: 1.5px solid #e0e8f5;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 41, 166, 0.2);
+  padding: 1.8rem;
+  animation: transferOtpAppear 0.3s ease-out;
+}
+
+.transfer-otp-modal h3 {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+.transfer-otp-subtext {
+  margin: 0.6rem 0 1.2rem;
+  color: #6b7280;
+  font-size: 0.93rem;
+  font-weight: 500;
+}
+
+.transfer-otp-input {
+  text-align: center;
+  letter-spacing: 0.15em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border: 1.5px solid #e0e8f5;
+  border-radius: 10px;
+  padding: 0.9rem;
+  background: #f8fbff;
+  color: #1f2937;
+  transition: all 0.2s ease;
+}
+
+.transfer-otp-input:focus {
+  border-color: #0041a6;
+  box-shadow: 0 0 0 3px rgba(0, 65, 166, 0.08);
+  outline: none;
+}
+
+.transfer-otp-expiry {
+  display: block;
+  margin-block-start: 0.6rem;
+  color: #6b7280;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.transfer-otp-actions {
+  margin-block-start: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.transfer-otp-btn {
+  min-block-size: 44px;
+}
+
+@keyframes transferOtpAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .transfer-page {
+    padding-block: 12px;
+  }
+
+  .transfer-page-main {
+    max-inline-size: 100%;
+    padding-inline: 8px;
+  }
+
+  .transfer-page .welcome-banner {
+    padding: 1.5rem 1.4rem;
+    max-inline-size: 100%;
+    margin-block-end: 1.5rem;
+  }
+
+  .transfer-page .welcome-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .transfer-page .card {
+    padding: 1.4rem;
+    max-inline-size: 100%;
+  }
+
+  .transfer-destination-type {
+    grid-template-columns: 1fr;
+  }
+
+  .transfer-page .auth-form .transfer-destination-type input[type="radio"] {
+    inline-size: 14px !important;
+    block-size: 14px !important;
+    min-inline-size: 14px !important;
+    min-block-size: 14px !important;
+    max-inline-size: 14px !important;
+    max-block-size: 14px !important;
+  }
+
+  .transfer-page .auth-form .transfer-destination-type input[type="radio"]:checked::after {
+    inset: 3px;
+  }
+
+  .transfer-confirmation-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .transfer-confirmation-actions,
+  .transfer-otp-actions {
+    grid-template-columns: 1fr;
+  }
+}
