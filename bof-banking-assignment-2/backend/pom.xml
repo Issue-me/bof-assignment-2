@@ -21,6 +21,10 @@
         <java.version>21</java.version>
     </properties>
 
+<properties>
+  <sonar.organization>issue-me</sonar.organization>
+</properties>
+         
     <dependencies>
         <!-- Spring Web (REST APIs) -->
         <dependency>
